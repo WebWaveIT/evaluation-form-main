@@ -101,11 +101,15 @@ export default class FormLayout extends Vue {
 
   handleNextClick() {
     //todo implement action after click next button(validate forms before going to next step)
-    const valid = this.isValidStep()
+    const valid = this.isValidStep();
     if (valid && this.currentStep < 2) {
       this.currentStep++;
+    } else if (this.currentStep === 2) {
+      this.fakeRequest()
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error, error.status));
     } else {
-      console.log("invalid step data")
+      console.log("invalid step data");
     }
   }
 
@@ -115,6 +119,16 @@ export default class FormLayout extends Vue {
    */
   isValidStep() {
     return this.userData.isValidStepData(this.currentStep);
+  }
+
+  fakeRequest() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const error = new Error("Page Not Found");
+        error.status = 404;
+        reject(error);
+      }, 1000); // Simulates a delay of 1 second before the request fails
+    });
   }
 }
 </script>

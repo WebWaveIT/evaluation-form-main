@@ -35,8 +35,4 @@ export default class ClientData extends StepData {
   getLabel() {
     return "Client Data"
   }
-
-  printSummary() {
-    throw new Error("not implemented");
-  }
 }

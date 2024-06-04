@@ -32,7 +32,14 @@ export default class StepData {
    * @returns {string}
    */
   printSummary() {
-    throw new Error("not implemented");
+    let summary = ``
+    for (const field of this.getFields()) {
+      summary += `
+        <p>${field.label}: </p>
+        <p>${field.value}</p>
+      `
+    }
+    return summary
   }
 }
 
