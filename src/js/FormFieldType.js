@@ -1,4 +1,5 @@
 export default {
-    INPUT: 'INPUT',
-    TEXT_AREA: 'TEXT_AREA',
+  INPUT: "INPUT",
+  TEXT_AREA: "TEXT_AREA",
 };
+

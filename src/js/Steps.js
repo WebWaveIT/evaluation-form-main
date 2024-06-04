@@ -1,5 +1,6 @@
 export default {
-	ClientData: 0,
-	Evaluations: 1,
-	Summary: 2,
+  ClientData: 0,
+  Evaluations: 1,
+  Summary: 2,
 };
+
