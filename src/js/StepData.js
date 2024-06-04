@@ -5,8 +5,7 @@ export default class StepData {
    * @returns {Array<FormField>}
    */
   getFields() {
-    //todo implement
-    return [];
+    throw new Error("getFields method should be implemented by subclass");
   }
 
   /**
@@ -15,7 +14,7 @@ export default class StepData {
   isValid() {
     let valid = true;
     this.getFields().forEach((field) => {
-      if (this[field].isValid() === false) {
+      if (field.isValid() === false) {
         valid = false;
       }
     });

@@ -53,8 +53,7 @@ export default class FormLayout extends Vue {
   }
 
   get nextButtonLabel() {
-    //todo implement return button text with other step
-    return "next";
+    return this.currentStep === Steps.Summary ? "send" : "next";
   }
 
   /**
@@ -82,8 +81,16 @@ export default class FormLayout extends Vue {
    * @returns {string}
    */
   get stepHeader() {
-    //todo implement return current step name
-    return "";
+    switch (this.currentStep) {
+      case Steps.ClientData:
+        return "Client Data";
+      case Steps.Evaluations:
+        return "Evaluations";
+      case Steps.Summary:
+        return "Summary";
+      default:
+        return "Client Data";
+    }
   }
 
   handleBackClick() {
@@ -94,7 +101,12 @@ export default class FormLayout extends Vue {
 
   handleNextClick() {
     //todo implement action after click next button(validate forms before going to next step)
-    this.currentStep++;
+    const valid = this.isValidStep()
+    if (valid && this.currentStep < 2) {
+      this.currentStep++;
+    } else {
+      console.log("invalid step data")
+    }
   }
 
   /**
