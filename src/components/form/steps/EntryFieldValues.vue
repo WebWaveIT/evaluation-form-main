@@ -1,12 +1,11 @@
 <template>
-  <div>
-    <div
+  <div class="step-entry-container">
+    <FormField
       v-for="(field, id) in stepData.getFields()"
       v-bind:key="id"
       class="step-entry"
-    >
-      <FormField :form-field="field" />
-    </div>
+      :form-field="field"
+    />
   </div>
 </template>
 
@@ -25,3 +24,14 @@ export default class EntryFieldValues extends Vue {
   @Prop({ type: StepData, required: true }) stepData;
 }
 </script>
+
+<style>
+.step-entry-container {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+</style>

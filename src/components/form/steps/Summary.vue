@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="summary-container">
     <div v-html="userData.printSummary()"></div>
   </div>
 </template>
@@ -15,3 +15,9 @@ export default class Summary extends Vue {
   @Prop({ type: UserData, required: true, default: () => [] }) userData;
 }
 </script>
+
+<style>
+.summary-container {
+  max-width: 600px;
+}
+</style>

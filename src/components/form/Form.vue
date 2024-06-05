@@ -12,12 +12,12 @@
     </div>
     <div class="footer">
       <div>
-        <button v-if="showBackButton" @click="handleBackClick">
+        <button class="formBtn" v-if="showBackButton" @click="handleBackClick">
           {{ backButtonLabel }}
         </button>
       </div>
       <div>
-        <button @click="handleNextClick">
+        <button class="formBtn" @click="handleNextClick">
           {{ nextButtonLabel }}
         </button>
       </div>
@@ -132,3 +132,26 @@ export default class FormLayout extends Vue {
   }
 }
 </script>
+
+<style>
+.content {
+  margin: 0 auto;
+  max-width: 600px;
+  gap: 32px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.formBtn {
+  padding: 12px 36px;
+  background-color: blue;
+  border: 0;
+  border-radius: 100px;
+  color: white;
+  font-size: 16px;
+}
+</style>
