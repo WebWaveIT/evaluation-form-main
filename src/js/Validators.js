@@ -9,5 +9,8 @@ export default {
     false
   ),
   NUMBER_REQUIRED: new Validator(ValidatorRegex.number, true),
+  TEXTAREA_STRING_NOT_REQUIRED: new Validator(
+    ValidatorRegex.textareaString,
+    false
+  ),
 };
-

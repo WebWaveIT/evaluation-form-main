@@ -13,7 +13,7 @@ export default class Evaluations extends StepData {
     });
     this.speakerComment = new FormField({
       label: "Additional feedback on speakers (optional)",
-      validator: Validators.NOT_EMPTY_STRING_NOT_REQUIRED,
+      validator: Validators.TEXTAREA_STRING_NOT_REQUIRED,
       type: FormFieldType.TEXT_AREA,
     });
     this.contentEvaluation = new FormField({
@@ -23,7 +23,7 @@ export default class Evaluations extends StepData {
     });
     this.contentComment = new FormField({
       label: "Additional feedback on the content (optional)",
-      validator: Validators.NOT_EMPTY_STRING_NOT_REQUIRED,
+      validator: Validators.TEXTAREA_STRING_NOT_REQUIRED,
       type: FormFieldType.TEXT_AREA,
     });
     this.cateringEvaluation = new FormField({
@@ -33,7 +33,7 @@ export default class Evaluations extends StepData {
     });
     this.cateringComment = new FormField({
       label: "Additional feedback on the catering (optional)",
-      validator: Validators.NOT_EMPTY_STRING_NOT_REQUIRED,
+      validator: Validators.TEXTAREA_STRING_NOT_REQUIRED,
       type: FormFieldType.TEXT_AREA,
     });
   }
