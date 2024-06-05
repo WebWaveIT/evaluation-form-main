@@ -1,40 +1,45 @@
 export default class StepData {
+  constructor() {}
 
-    constructor(){
-    }
+  /**
+   * @returns {Array<FormField>}
+   */
+  getFields() {
+    throw new Error("getFields method should be implemented by subclass");
+  }
 
-    /**
-     * @returns {Array<FormField>}
-     */
-    getFields(){
-        //todo implement
-        return [];
-    }
+  /**
+   * @returns {boolean}
+   */
+  isValid() {
+    let valid = true;
+    this.getFields().forEach((field) => {
+      if (field.isValid() === false) {
+        valid = false;
+      }
+    });
+    return valid;
+  }
 
-    /**
-     * @returns {boolean}
-     */
-    isValid(){
-        let valid = true;
-        this.getFields().forEach((field) => {
-            if (this[field].isValid() === false){
-                valid = false;
-            }
-        });
-        return valid;
-    }
+  /**
+   * @returns {string}
+   */
+  getLabel() {
+    throw new Error("not implemented");
+  }
 
-    /**
-     * @returns {string}
-     */
-    getLabel(){
-        throw new Error('not implemented');
+  /**
+   * @returns {string}
+   */
+  printSummary() {
+    let summary = ``
+    for (const field of this.getFields()) {
+      summary += `
+        <p>${field.label}: </p>
+        <p>${field.value}</p>
+      `
     }
-
-    /**
-     * @returns {string}
-     */
-    printSummary(){
-        throw new Error('not implemented');
-    }
+    return summary
+  }
 }
+
