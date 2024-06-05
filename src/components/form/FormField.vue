@@ -17,6 +17,11 @@
       v-model="formField.value"
       :placeholder="formField.label"
     />
+
+    <div v-if="displayFormFieldError">
+      <p class="field-error-message">invalid field data</p>
+    </div>
+    <div v-else class="field-error-message-placeholder"></div>
   </div>
 </template>
 <script>
@@ -35,6 +40,10 @@ export default class FormEntry extends Vue {
     return {
       FormFieldType: FormFieldType,
     };
+  }
+
+  get displayFormFieldError() {
+    return this.formField.value.length && !this.formField.isValid();
   }
 }
 </script>
@@ -59,6 +68,17 @@ export default class FormEntry extends Vue {
 
 .textarea {
   width: 100%;
-  min-height: 100px;
+  min-height: 64px;
+}
+
+.field-error-message {
+  color: red;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.field-error-message-placeholder {
+  min-height: 14px;
 }
 </style>

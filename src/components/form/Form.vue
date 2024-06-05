@@ -2,6 +2,10 @@
   <div>
     <div class="header">
       <h1>{{ stepHeader }}</h1>
+      <div v-if="displayErrorMessage">
+        <p class="step-error-message">fill in all required fields</p>
+      </div>
+      <div v-else class="step-error-message-placeholder"></div>
     </div>
     <div class="content">
       <EntryFieldValues
@@ -12,12 +16,12 @@
     </div>
     <div class="footer">
       <div>
-        <button class="formBtn" v-if="showBackButton" @click="handleBackClick">
+        <button class="form-btn" v-if="showBackButton" @click="handleBackClick">
           {{ backButtonLabel }}
         </button>
       </div>
       <div>
-        <button class="formBtn" @click="handleNextClick">
+        <button class="form-btn" @click="handleNextClick">
           {{ nextButtonLabel }}
         </button>
       </div>
@@ -45,6 +49,7 @@ export default class FormLayout extends Vue {
       Steps: Steps,
       currentStep: Steps.ClientData,
       userData: new UserData(),
+      displayErrorMessage: false,
     };
   }
 
@@ -102,6 +107,7 @@ export default class FormLayout extends Vue {
   handleNextClick() {
     //todo implement action after click next button(validate forms before going to next step)
     const valid = this.isValidStep();
+    this.displayErrorMessage = !valid;
     if (valid && this.currentStep < 2) {
       this.currentStep++;
     } else if (this.currentStep === 2) {
@@ -140,18 +146,33 @@ export default class FormLayout extends Vue {
   gap: 32px;
 }
 
+.header {
+  margin-bottom: 8px;
+}
+
 .footer {
   display: flex;
   justify-content: center;
   gap: 16px;
 }
 
-.formBtn {
+.form-btn {
   padding: 12px 36px;
   background-color: blue;
   border: 0;
   border-radius: 100px;
   color: white;
   font-size: 16px;
+}
+
+.step-error-message {
+  font-size: 16px;
+  color: red;
+  margin: 0;
+  padding: 0;
+}
+
+.step-error-message-placeholder {
+  min-height: 18px;
 }
 </style>
