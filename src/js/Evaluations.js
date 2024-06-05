@@ -7,32 +7,32 @@ export default class Evaluations extends StepData {
   constructor() {
     super();
     this.speakerEvaluation = new FormField({
-      label: "Speaker evaluation",
+      label: "Speaker evaluation (1 - 10)",
       validator: Validators.NUMBER_REQUIRED,
       type: FormFieldType.INPUT,
     });
     this.speakerComment = new FormField({
-      label: "Additional feedback on speakers (optional)",
+      label: "Additional feedback on speakers (optional, 500 characters)",
       validator: Validators.TEXTAREA_STRING_NOT_REQUIRED,
       type: FormFieldType.TEXT_AREA,
     });
     this.contentEvaluation = new FormField({
-      label: "Content evaluation",
+      label: "Content evaluation (1 - 10)",
       validator: Validators.NUMBER_REQUIRED,
       type: FormFieldType.INPUT,
     });
     this.contentComment = new FormField({
-      label: "Additional feedback on the content (optional)",
+      label: "Additional feedback on the content (optional, 500 characters)",
       validator: Validators.TEXTAREA_STRING_NOT_REQUIRED,
       type: FormFieldType.TEXT_AREA,
     });
     this.cateringEvaluation = new FormField({
-      label: "Catering evaluation",
+      label: "Catering evaluation (1 - 10)",
       validator: Validators.NUMBER_REQUIRED,
       type: FormFieldType.INPUT,
     });
     this.cateringComment = new FormField({
-      label: "Additional feedback on the catering (optional)",
+      label: "Additional feedback on the catering (optional, 500 characters)",
       validator: Validators.TEXTAREA_STRING_NOT_REQUIRED,
       type: FormFieldType.TEXT_AREA,
     });
