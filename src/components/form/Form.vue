@@ -83,11 +83,11 @@ export default class FormLayout extends Vue {
   get stepHeader() {
     switch (this.currentStep) {
       case Steps.ClientData:
-        return "Client Data";
+        return this.userData.clientData.getLabel();
       case Steps.Evaluations:
-        return "Evaluations";
+        return this.userData.evaluations.getLabel();
       case Steps.Summary:
-        return "Summary";
+        return this.userData.getLabel();
       default:
         return "Client Data";
     }

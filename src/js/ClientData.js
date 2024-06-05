@@ -33,6 +33,6 @@ export default class ClientData extends StepData {
   }
 
   getLabel() {
-    return "Client Data"
+    return "Client's Data"
   }
 }

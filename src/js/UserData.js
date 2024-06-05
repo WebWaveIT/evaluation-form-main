@@ -34,4 +34,12 @@ export default class UserData {
         <p>${this.evaluations.printSummary()}</p>
         `;
   }
+
+  /**
+  *
+  * @returns {string}
+  */
+  getLabel() {
+    return "Summary";
+  }
 }
